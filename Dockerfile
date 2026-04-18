@@ -19,6 +19,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code into the container
 COPY . /app/
 
+RUN mkdir -p /app/static /app/templates
+
+
 # Render sets the PORT environment variable dynamically, 
 # so we run Uvicorn on 0.0.0.0 and bind to that PORT (or fallback to 8000 for local testing)
 CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
