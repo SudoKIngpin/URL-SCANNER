@@ -19,7 +19,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code into the container
 COPY . /app/
 
-RUN mkdir -p /app/static /app/templates
 
 
 # Render sets the PORT environment variable dynamically, 
